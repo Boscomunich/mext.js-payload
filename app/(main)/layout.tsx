@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./navbar";
+import SideBar from "./sidebar";
 
 export const metadata: Metadata = {
   title: "Prescreening UI",
@@ -15,10 +16,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`font-axiforma antialiased`}
+        className={`font-axiforma antialiased bg-[#FAFAFB]`}
       >
         <Navbar/>
-        {children}
+        <div className="flex justify-center relative">
+          <SideBar/>
+          {children}
+        </div>
       </body>
     </html>
   );

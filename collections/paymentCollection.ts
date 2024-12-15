@@ -1,4 +1,3 @@
-// collections/payments.ts
 import type { CollectionConfig } from 'payload';
 
 export const Payments: CollectionConfig = {
@@ -46,6 +45,39 @@ export const Payments: CollectionConfig = {
             required: true,
         },
         {
+        name: 'cardDetails',
+        type: 'group',
+        admin: {
+            condition: (data) => data.paymentMethod === 'credit_card',
+        },
+        fields: [
+            {
+                name: 'cardType',
+                type: 'select',
+                options: [
+                    {
+                        label: 'Visa',
+                        value: 'visa',
+                    },
+                    {
+                        label: 'MasterCard',
+                        value: 'mastercard',
+                    },
+                    {
+                        label: 'American Express',
+                        value: 'amex',
+                    },
+                ],
+                required: true,
+            },
+            {
+                name: 'cardNumber',
+                type: 'text',
+                required: true,
+            },
+        ],
+        },
+        {
             name: 'status',
             type: 'select',
             options: [
@@ -65,5 +97,23 @@ export const Payments: CollectionConfig = {
             required: true,
             defaultValue: 'pending',
         },
+        {
+            name: 'transactionDate',
+            type: 'date',
+            required: true,
+            admin: {
+                readOnly: true,
+            },
+        },
     ],
+    hooks: {
+        beforeChange: [
+            ({ data }) => {
+                if (!data.transactionDate) {
+                    data.transactionDate = new Date().toISOString();
+                }
+                return data;
+            },
+        ],
+    },
 };

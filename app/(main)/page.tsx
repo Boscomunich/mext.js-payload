@@ -1,8 +1,15 @@
-import Image from "next/image";
+import Summary from "./components/dashboard/summary";
+import Payment from "./components/dashboard/payment";
+import Doctor from "./components/dashboard/doctor";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="mt-[150px] mb-[30px] absolute left-[370px] h-auto overflow-y-auto no-scrollbar  w-[calc(100%-410px)]">
+      <Summary/>
+      <div className="flex justify-center gap-[10px]">
+        <Payment/>
+        <Doctor/>
+      </div>
     </div>
   );
 }

@@ -62,6 +62,10 @@ export const Users: CollectionConfig = {
                     name: 'address',
                     type: 'text',
                 },
+                {
+                    name: "consultations",
+                    type: "number"
+                },
             ],
         },
         {

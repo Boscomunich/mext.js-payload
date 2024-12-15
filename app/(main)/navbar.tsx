@@ -6,9 +6,9 @@ import Profile from "./components/profile";
 
 export default function Navbar () {
     return (
-        <div className="w-full fixed top-0 h-[120px] bg-white flex justify-between items-center px-[80px]">
+        <div className="w-full fixed z-[1000] top-0 h-[120px] bg-white flex justify-between items-center px-[40px]">
             <div className="w-[50%] flex justify-start">
-                <div className="w-[50%] h-[86px] font-[700] text-[28px] leading-[46px] flex justify-start items-center">
+                <div className="w-[50%] min-w-[330px] h-[86px] font-[700] text-[28px] leading-[46px] flex justify-start items-center">
                     <h1>LOGO</h1>
                 </div>
                 <div className="flex justify-center h-[86px] items-center font-[500] text-[28px] leading-[44.91px]">
